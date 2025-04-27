@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="prefabs/header :: head"></th:block>
+
+<body>
+  <h1>¡Hola, <span th:text="${name}">Mundo</span>!</h1>
+  <th:block th:insert="prefabs/footer :: footer"></th:block>
+</body>
+</html>
