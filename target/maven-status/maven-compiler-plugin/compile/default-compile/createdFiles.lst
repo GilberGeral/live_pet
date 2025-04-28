@@ -1,5 +1,12 @@
-main/java/co/bitmo/java/model/Mascota.class
+co/bitmo/java/repository/MascotasRepository.class
+co/bitmo/java/model/Mascota.class
+co/bitmo/java/repository/MascotasTipoRepository.class
 co/bitmo/java/controller/HelloController.class
-co/bitmo/java/App.class
+co/bitmo/java/util/Respuesta.class
+co/bitmo/java/service/MascotasService.class
 co/bitmo/java/CrudApplication.class
-main/java/co/bitmo/java/model/MascotasTipo.class
+co/bitmo/java/App.class
+co/bitmo/java/dto/MascotaDTO.class
+co/bitmo/java/util/Utils.class
+co/bitmo/java/service/MascotasTipoService.class
+co/bitmo/java/model/MascotasTipo.class

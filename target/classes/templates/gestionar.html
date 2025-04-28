@@ -7,10 +7,104 @@
 
     <th:block th:insert="prefabs/menu_top :: menu_top"></th:block>
 
-    <div class="container mt-3 border border-primary" style="padding-top: 80px;">
-     
-    </div>
-        
+    <h3 class="m-2">Gestionando mis mascotas</h3>
+    <div class="accordion" id="accordionExample">
+
+      <div class="accordion-item bg-light">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Agregar mascota
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body ">            
+            <!-- form creacion mascota -->
+            <form class="row g-3" id="form-mascota" name="form-mascota">
+
+              <div class="col-md-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" >
+              </div>
+
+              <div class="col-md-4">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control form-control-sm" id="edad" name="edad">
+              </div>
+
+              <div class="col-md-4">
+                <label for="tipoMascota" class="form-label">Tipo</label>
+                <select class="form-control form-control-sm" id="tipoMascota" name="tipoMascota">
+                  
+                  <option value="" disabled selected>Seleccione</option>
+                  
+                  <option th:each="tipo : ${tiposMascotas}"
+                    th:value="${tipo.idMask}"
+                    th:text="${tipo.nombre}">Opción</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <a href="javascript:void(0)" class="btn btn-primary" onclick="guardarMascota()">Crear</a>
+              </div>
+
+              </form>
+          </div>
+        </div>
+      </div>
+      
+      <div th:each="mascota : ${mascotas}" class="accordion-item bg-light">
+        <h2 class="accordion-header" th:id="'heading' + ${mascota.idMask}">
+          <button class="accordion-button collapsed" type="button" 
+                  th:data-bs-toggle="'collapse'" 
+                  th:data-bs-target="'#collapse' + ${mascota.idMask}" 
+                  th:aria-expanded="false" 
+                  th:aria-controls="'collapse' + ${mascota.idMask}">
+            <!-- Mostramos el nombre de la mascota -->
+            <span th:text="${mascota.nombre}">Nombre de la mascota</span>
+          </button>
+        </h2>
+        <div th:id="'collapse' + ${mascota.idMask}" class="accordion-collapse collapse" 
+             th:aria-labelledby="'heading' + ${mascota.idMask}" 
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            
+            <form class="row g-3" th:id="|form-mascota-${mascota.idMask}|" th:name="|form-mascota-${mascota.idMask}|">
+
+              <div class="col-md-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" th:value="${mascota.nombre}">
+              </div>
+
+              <div class="col-md-4">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control form-control-sm" id="edad" name="edad" th:value="${mascota.edad}">
+              </div>
+
+              <div class="col-md-4">
+                <label for="tipoMascota" class="form-label">Tipo</label>
+                <select class="form-control form-control-sm" id="tipoMascota" name="tipoMascota">
+                  
+                  <option value="" disabled selected>Seleccione</option>
+                  
+                  <option th:each="tipo : ${tiposMascotas}" 
+                    th:value="${tipo.idMask}" 
+                    th:text="${tipo.nombre}"
+                    th:selected="${tipo.idMask == mascota.tipoMascota.idMask}">Opción</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <a href="javascript:void(0)" class="btn btn-danger" th:id="|btn-update-${mascota.idMask}|" th:name="|btn-delete-${mascota.idMask}|" onclick="borrarMascota(this.id)">Borrar</a>
+                <a href="javascript:void(0)" class="btn btn-primary" th:id="|btn-update-${mascota.idMask}|" th:name="|btn-update-${mascota.idMask}|" onclick="actualizarMascota(this.id)">Actualizar</a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin de todo el acordeon -->
+
     <hr>
     <th:block th:insert="prefabs/footer :: footer"></th:block>
   </body>

@@ -1,17 +1,16 @@
-package main.java.co.bitmo.java.model;
+package co.bitmo.java.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
-
-import main.java.co.bitmo.java.model.MascotasTipo;
+import co.bitmo.java.model.MascotasTipo;
 
 @Entity
 @Table(name = "mascotas")
@@ -50,6 +49,8 @@ public class Mascota {
   @Column(name = "updated_by")
   private Short updatedBy;
 
+  public Mascota() {}
+  
   public Mascota(Integer idMascota, String nombre, MascotasTipo tipoMascota) {
     this.idMascota = idMascota;
     this.nombre = nombre;

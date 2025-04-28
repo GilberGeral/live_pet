@@ -1,10 +1,11 @@
-package main.java.co.bitmo.java.model;
+package co.bitmo.java.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "mascotas_tipo")
@@ -12,13 +13,19 @@ public class MascotasTipo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id_tipo_mascota")
   private Integer idTipoMascota;
 
+  @Column(name = "id_mask")
   private String idMask;
+
+  @Column(name = "nombre")
   private String nombre;
 
-  // Getters y Setters
+  @Column(name = "icono")
+  private String icono;
 
+  // Getters y Setters
   public Integer getIdTipoMascota() {
     return idTipoMascota;
   }
@@ -43,12 +50,21 @@ public class MascotasTipo {
     this.nombre = nombre;
   }
 
-  public MascotasTipo() {
-    // Puedes usar este constructor si deseas crear un objeto vacío
+  public String getIcono() {
+    return icono;
   }
 
+  public void setIcono(String icono) {
+    this.icono = icono;
+  }
+
+  // Constructor vacío
+  public MascotasTipo() {}
+
+  // Constructor con nombre
   public MascotasTipo(String nombre) {
     this.nombre = nombre;
   }
 
 }
+

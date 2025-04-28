@@ -1,3 +1,12 @@
+/home/test_crud/src/main/java/co/bitmo/java/repository/MascotasRepository.java
+/home/test_crud/src/main/java/co/bitmo/java/util/Utils.java
+/home/test_crud/src/main/java/co/bitmo/java/service/MascotasTipoService.java
+/home/test_crud/src/main/java/co/bitmo/java/model/MascotasTipo.java
+/home/test_crud/src/main/java/co/bitmo/java/dto/MascotaDTO.java
+/home/test_crud/src/main/java/co/bitmo/java/repository/MascotasTipoRepository.java
 /home/test_crud/src/main/java/co/bitmo/java/App.java
 /home/test_crud/src/main/java/co/bitmo/java/controller/HelloController.java
+/home/test_crud/src/main/java/co/bitmo/java/model/Mascota.java
+/home/test_crud/src/main/java/co/bitmo/java/util/Respuesta.java
+/home/test_crud/src/main/java/co/bitmo/java/service/MascotasService.java
 /home/test_crud/src/main/java/co/bitmo/java/CrudApplication.java
